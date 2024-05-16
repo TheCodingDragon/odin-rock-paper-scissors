@@ -17,25 +17,14 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    const numberChoice = parseInt(prompt("Please type 0 for rock, 1 for paper or 2 for scissors: "));
-    let choice = "error";
-
-    if (numberChoice === 0) {
-        choice = "rock";
-    } else if (numberChoice === 1) {
-        choice = "paper";
-    } else if (numberChoice === 2) {
-        choice = "scissors";
-    }
-
-    return choice;
+    return prompt("Please enter rock, paper or scissors: ");
 }
 
 function playRound(humanChoice, computerChoice) {
     console.log(humanChoice, computerChoice);
 }
 
-const humanSelection = getHumanChoice();
+const humanSelection = getHumanChoice().toLowerCase();
 const computerSelection = getComputerChoice();
 
 playRound(humanSelection, computerSelection);
