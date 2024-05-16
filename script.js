@@ -21,6 +21,25 @@ function getHumanChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
+    // if humanchoice equals computer choice
+    if (humanChoice === computerChoice) {
+        console.log("TIE!");
+    } else if (humanChoice === 'rock' && computerChoice === 'paper') {
+        console.log("You loose! Paper beats Rock.");
+    } else if (humanChoice === 'rock' && computerChoice === 'scissors') {
+        console.log("You Win! Rock beats Scissors.");
+    } else if (humanChoice === 'paper' && computerChoice === 'rock') {
+        console.log("You Win! Paper beats Rock.");
+    } else if (humanChoice === 'paper' && computerChoice === 'scissors') {
+        console.log("You Loose! Scissors beats Paper.");
+    } else if (humanChoice === 'scissors' && computerChoice === 'paper') {
+        console.log("You Win! Scissors beats paper.");
+    } else if (humanChoice === 'scissors' && computerChoice === 'rock') {
+        console.log("You Loose! Rock beats Scissors.");
+    } else {
+        console.error(humanChoice + " is not a correct value. It must be rock, paper or scissors.");
+    }
+
     console.log(humanChoice, computerChoice);
 }
 
