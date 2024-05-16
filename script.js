@@ -15,7 +15,6 @@ function getHumanChoice() {
     return prompt("Please enter rock, paper or scissors: ");
 }
 
-
 function playGame() {
 
     let humanScore = 0;
@@ -60,7 +59,7 @@ function playGame() {
     } else if (computerScore > humanScore) {
         console.log("You Loose! The total score is " + humanScore + " " + computerScore)
     } else {
-        console.log("Tie Game!");
+        console.log("Tie Game! The total score is " + humanScore + " " + computerScore);
     }
 }
 
