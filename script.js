@@ -19,61 +19,66 @@ function playGame() {
 
     let humanScore = 0;
     let computerScore = 0;
+    const results = document.querySelector(".results");
 
-    const humanSelection = function () { return getHumanChoice().toLowerCase(); }
     const computerSelection = function () { return getComputerChoice(); }
+
+    function isGameOver() {
+        return humanScore >= 5 || computerScore >= 5;
+    }
+
 
     function playRound(humanChoice, computerChoice) {
         if (humanChoice === computerChoice) {
-            console.log("TIE!");
+            results.innerHTML = "Tie";
         } else if (humanChoice === 'rock' && computerChoice === 'paper') {
             computerScore++;
-            console.log("You loose! Paper beats Rock.");
+            results.innerHTML = "You loose! Paper beats Rock.";
         } else if (humanChoice === 'rock' && computerChoice === 'scissors') {
             humanScore++;
-            console.log("You Win! Rock beats Scissors.");
+            results.innerHTML = "You Win! Rock beats Scissors.";
         } else if (humanChoice === 'paper' && computerChoice === 'rock') {
             humanScore++;
-            console.log("You Win! Paper beats Rock.");
+            results.innerHTML = "You Win! Paper beats Rock.";
         } else if (humanChoice === 'paper' && computerChoice === 'scissors') {
             computerScore++;
-            console.log("You Loose! Scissors beats Paper.");
+            results.innerHTML = "You Loose! Scissors beats Paper.";
         } else if (humanChoice === 'scissors' && computerChoice === 'paper') {
             humanScore++;
-            console.log("You Win! Scissors beats paper.");
+            results.innerHTML = "You Win! Scissors beats paper.";
         } else if (humanChoice === 'scissors' && computerChoice === 'rock') {
             computerScore++;
-            console.log("You Loose! Rock beats Scissors.");
+            results.innerHTML = "You Loose! Rock beats Scissors.";
         } else {
-            console.error(humanChoice + " is not a correct value. It must be rock, paper or scissors.");
+            results.innerHTML = humanChoice + " is not a correct value. It must be rock, paper or scissors.";
         }
+        if (isGameOver()) {
+            results.innerHTML = "GAME OVER!!!";
+
+            if (humanScore > computerScore) {
+                results.innerHTML += " You Win! The total score is Human:" + humanScore + " Computer: " + computerScore;
+            } else if (computerScore > humanScore) {
+                results.innerHTML += " You Loose! The total score is Human:" + humanScore + " Computer:" + computerScore;
+            } else {
+                cresults.innerHTML += " Tie Game! The total score is Human:" + humanScore + " Computer:" + computerScore;
+            }
+
+            humanScore = 0;
+            computerScore = 0;
+        };
     }
 
     document.querySelector("#rock").addEventListener("click", function () {
-        console.log("Rock");
+        playRound("rock", computerSelection());
     });
 
     document.querySelector("#paper").addEventListener("click", function () {
-        console.log("Paper");
+        playRound("paper", computerSelection());
     });
 
     document.querySelector("#scissors").addEventListener("click", function () {
-        console.log("Scissors");
+        playRound("scissors", computerSelection());
     });
-
-
-
-
-    // playRound(humanSelection(), computerSelection());
-
-
-    // if (humanScore > computerScore) {
-    //     console.log("You Win! The total score is " + humanScore + " " + computerScore);
-    // } else if (computerScore > humanScore) {
-    //     console.log("You Loose! The total score is " + humanScore + " " + computerScore)
-    // } else {
-    //     console.log("Tie Game! The total score is " + humanScore + " " + computerScore);
-    // }
 }
 
 playGame();
