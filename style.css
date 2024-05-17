@@ -1,0 +1,38 @@
+.container {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+button {
+    width: 100px;
+    height: 100px;
+    font-weight: bolder;
+    border: 1px solid #222;
+    border-radius: 10px;
+}
+
+button#rock {
+    background-color: lightgray;
+
+}
+
+button#paper {
+    background-color: blanchedalmond;
+}
+
+button#scissors {
+    background-color: crimson;
+    color: blanchedalmond;
+}
+
+.results {
+    padding: 20px;
+    width: 260px;
+    height: 40px;
+    border: 1px solid #222;
+    border-radius: 10px;
+}
