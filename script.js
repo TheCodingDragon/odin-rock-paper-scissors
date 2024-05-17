@@ -30,7 +30,7 @@ function playGame() {
 
     function playRound(humanChoice, computerChoice) {
         if (humanChoice === computerChoice) {
-            results.innerHTML = "Tie";
+            results.innerHTML = "Tie! ";
         } else if (humanChoice === 'rock' && computerChoice === 'paper') {
             computerScore++;
             results.innerHTML = "You loose! Paper beats Rock.";
@@ -52,6 +52,8 @@ function playGame() {
         } else {
             results.innerHTML = humanChoice + " is not a correct value. It must be rock, paper or scissors.";
         }
+
+        results.innerHTML += " Human: " + humanScore + " Computer: " + computerScore;
         if (isGameOver()) {
             results.innerHTML = "GAME OVER!!!";
 
