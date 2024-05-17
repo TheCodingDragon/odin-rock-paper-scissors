@@ -49,18 +49,31 @@ function playGame() {
         }
     }
 
-    for (let i = 1; i <= 5; i++) {
-        console.log("GAME " + i);
-        playRound(humanSelection(), computerSelection());
-    }
+    document.querySelector("#rock").addEventListener("click", function () {
+        console.log("Rock");
+    });
 
-    if (humanScore > computerScore) {
-        console.log("You Win! The total score is " + humanScore + " " + computerScore);
-    } else if (computerScore > humanScore) {
-        console.log("You Loose! The total score is " + humanScore + " " + computerScore)
-    } else {
-        console.log("Tie Game! The total score is " + humanScore + " " + computerScore);
-    }
+    document.querySelector("#paper").addEventListener("click", function () {
+        console.log("Paper");
+    });
+
+    document.querySelector("#scissors").addEventListener("click", function () {
+        console.log("Scissors");
+    });
+
+
+
+
+    // playRound(humanSelection(), computerSelection());
+
+
+    // if (humanScore > computerScore) {
+    //     console.log("You Win! The total score is " + humanScore + " " + computerScore);
+    // } else if (computerScore > humanScore) {
+    //     console.log("You Loose! The total score is " + humanScore + " " + computerScore)
+    // } else {
+    //     console.log("Tie Game! The total score is " + humanScore + " " + computerScore);
+    // }
 }
 
 playGame();
